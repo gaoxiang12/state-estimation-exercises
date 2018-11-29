@@ -1,0 +1,8 @@
+# latex
+*.aux
+*.log
+*.synctex.gz
+*.bbl
+*.dvi
+
+exercises.pdf

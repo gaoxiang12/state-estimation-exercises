@@ -1,0 +1,43 @@
+\documentclass[10pt]{article}
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[paperheight=26 true cm,paperwidth=18.4 true cm,
+top=2.6 true cm,bottom=2.2 true cm,left=1.8 true cm,right=1.8 true cm]{geometry}
+
+\title{Exercises of State Estimation for Robotics}
+
+% put your name here
+\author{Xiang Gao}
+
+\begin{document}
+
+\maketitle
+
+\section{Chapter 2}
+\subsection{ex 2.1}
+\begin{equation}
+{\mathbf{u}^T}\mathbf{v} = \sum\limits_{i = 1}^n {{u_i}{v_i}}  = \mathrm{tr}\left( {\mathbf{v}{\mathbf{u}^T}} \right)
+\end{equation}
+
+\subsection{ex 2.2}
+\begin{equation}
+\begin{split}
+H\left( {\mathbf{x},\mathbf{y}} \right) &=  - \iint {p\left( {\mathbf{x},\mathbf{y}} \right)\ln }p\left( {\mathbf{x},\mathbf{y}} \right)\mathrm{d}\mathbf{x}\mathrm{d}\mathbf{y} \\ 
+&=  - \iint {p\left( \mathbf{x} \right)p\left( \mathbf{y} \right)\left( {\ln p\left( \mathbf{x} \right) + \ln p\left( \mathbf{y} \right)} \right)\mathrm{d}\mathbf{x}\mathrm{d}\mathbf{y}} \\ 
+&=  - \int {p\left( \mathbf{x} \right)\ln p\left( \mathbf{x} \right)\underbrace {\left( {\int {p\left( \mathbf{y} \right)\mathrm{d}\mathbf{y}} } \right)}_1\mathrm{d}\mathbf{x} - \int {p\left( \mathbf{y} \right)\ln p\left( \mathbf{y} \right)\underbrace {\left( {\int {p\left( \mathbf{x} \right)\mathrm{d}\mathbf{x}} } \right)}_1\mathrm{d}\mathbf{y}} }  \\ 
+&= H\left( \mathbf{x} \right) + H\left( \mathbf{y} \right) \\ 
+\end{split}
+\end{equation}
+
+\subsection{ex 2.3}
+\begin{equation}
+\begin{split}
+E\left( {\mathbf{x}{\mathbf{x}^T}} \right) &= E\left( {\left( {\mathbf{x} - \boldsymbol{\mu}  + \boldsymbol{\mu} } \right){{\left( {\mathbf{x} - \boldsymbol{\mu}  + \boldsymbol{\mu} } \right)}^T}} \right) \hfill \\
+&= E\left( {\underbrace {\left( {\mathbf{x} - \boldsymbol{\mu} } \right){{\left( {\mathbf{x} - \boldsymbol{\mu} } \right)}^T}}_{\boldsymbol{\Sigma}}  + \underbrace {\boldsymbol{\mu} {{\left( {\mathbf{x} - \boldsymbol{\mu} } \right)}^T}}_{\boldsymbol{\mu} {\mathbf{0}^T}} + \underbrace {\left( {\mathbf{x} - \boldsymbol{\mu} } \right){\boldsymbol{\mu} ^T}}_{\mathbf{0}{\boldsymbol{\mu} ^T}} + \boldsymbol{\mu} {\boldsymbol{\mu} ^T}} \right) \hfill \\
+&= \boldsymbol{\Sigma}  + \boldsymbol{\mu} {\boldsymbol{\mu} ^T} \hfill \\ 
+\end{split}
+\end{equation}
+
+
+\end{document}
