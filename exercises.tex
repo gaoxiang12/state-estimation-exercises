@@ -39,5 +39,23 @@ E\left( {\mathbf{x}{\mathbf{x}^T}} \right) &= E\left( {\left( {\mathbf{x} - \bol
 \end{split}
 \end{equation}
 
+\subsubsection{ex 2.4}
+The integrate of an odd function is zero in the symmetric interval.
+\begin{equation}
+	\begin{split}
+		E\left(\mathbf{x} \right) &= \int_{-\infty}^{+\infty}\boldsymbol{x}p\left(\boldsymbol{x}\right)d\boldsymbol{x} \hfill \\
+		&= \int_{-\infty}^{+\infty}\frac{\boldsymbol{x}}{\sqrt{(2\pi)^N\text{det}\boldsymbol{\Sigma}}}\text{exp}\left(-\frac{1}{2}(\boldsymbol{x}-\boldsymbol{\mu})^T\boldsymbol{\Sigma}^{-1}(\boldsymbol{x}-\boldsymbol{\mu})\right)d\boldsymbol{x} \hfill \\  
+		&=  
+		\int_{-\infty}^{+\infty}\frac{\boldsymbol{y}+\boldsymbol{\mu}}{\sqrt{(2\pi)^N\text{det}\boldsymbol{\Sigma}}}\text{exp}\left(-\frac{1}{2}\boldsymbol{y}^T\boldsymbol{\Sigma}^{-1}\boldsymbol{y}\right)d\boldsymbol{y} \hfill \\
+		&=
+		\underbrace{\int_{-\infty}^{+\infty}\frac{\boldsymbol{y}}{\sqrt{(2\pi)^N\text{det}\boldsymbol{\Sigma}}}\text{exp}\left(-\frac{1}{2}\boldsymbol{y}^T\boldsymbol{\Sigma}^{-1}\boldsymbol{y}\right)d\boldsymbol{y}}_{0} +\hfill
+		\\& \int_{-\infty}^{+\infty}\frac{\boldsymbol{\mu}}{\sqrt{(2\pi)^N\text{det}\boldsymbol{\Sigma}}}\text{exp}\left(-\frac{1}{2}\boldsymbol{x}^T\boldsymbol{\Sigma}^{-1}\boldsymbol{x}\right)d\boldsymbol{x} \hfill
+		\\&=
+		\boldsymbol{\mu}\underbrace{\int_{-\infty}^{+\infty}\frac{1}{\sqrt{(2\pi)^N\text{det}\boldsymbol{\Sigma}}}\text{exp}\left(-\frac{1}{2}\boldsymbol{y}^T\boldsymbol{\Sigma}^{-1}\boldsymbol{y}\right)d\boldsymbol{y}}_{\boldsymbol{y}\sim\boldsymbol{N}(0,\boldsymbol{\Sigma})} \hfill
+		\\&=
+		\boldsymbol{\mu}\underbrace{\int_{-\infty}^{+\infty}p\left(\boldsymbol{y}\right)d\boldsymbol{y}}_{1} \hfill
+		\\&=   \boldsymbol{\mu}
+	\end{split}
+\end{equation}
 
 \end{document}
