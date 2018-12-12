@@ -13,6 +13,8 @@ top=2.6 true cm,bottom=2.2 true cm,left=1.8 true cm,right=1.8 true cm]{geometry}
 \begin{document}
 
 \maketitle
+\section{Chapter 1}
+Chapter 1 does not have any exercises.
 
 \section{Chapter 2}
 \subsection{ex 2.1}
@@ -39,5 +41,91 @@ E\left( {\mathbf{x}{\mathbf{x}^T}} \right) &= E\left( {\left( {\mathbf{x} - \bol
 \end{split}
 \end{equation}
 
-\[p\left( x \right) = \frac{1}{{\sqrt {2\pi {\sigma ^2}} }}\exp \left( { - \frac{{{{\left( {x - \mu } \right)}^2}}}{{2{\sigma ^2}}}} \right)\]
+\subsection{ex 2.4}
+The integrate of an odd function is zero in the symmetric interval.
+\begin{equation}
+	\begin{split}
+		E\left(\mathbf{x} \right) &= \int_{-\infty}^{+\infty}\mathbf{x}p\left(\mathbf{x}\right)\mathrm{d}\mathbf{x} \hfill \\
+		&= \int_{-\infty}^{+\infty}\frac{\mathbf{x}}{\sqrt{(2\pi)^N\text{det}\boldsymbol{\Sigma}}}\text{exp}\left(-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu})^T\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})\right)\mathrm{d}\mathbf{x} \hfill \\  
+		&=  
+		\int_{-\infty}^{+\infty}\frac{\mathbf{y}+\boldsymbol{\mu}}{\sqrt{(2\pi)^N\text{det}\boldsymbol{\Sigma}}}\text{exp}\left(-\frac{1}{2}\mathbf{y}^T\boldsymbol{\Sigma}^{-1}\mathbf{y}\right)\mathrm{d}\mathbf{y} \hfill \\
+		&=
+		\underbrace{\int_{-\infty}^{+\infty}\frac{\mathbf{y}}{\sqrt{(2\pi)^N\text{det}\boldsymbol{\Sigma}}}\text{exp}\left(-\frac{1}{2}\mathbf{y}^T\boldsymbol{\Sigma}^{-1}\mathbf{y}\right)\mathrm{d}\mathbf{y}}_{0} +\hfill  \int_{-\infty}^{+\infty}\frac{\boldsymbol{\mu}}{\sqrt{(2\pi)^N\text{det}\boldsymbol{\Sigma}}}\text{exp}\left(-\frac{1}{2}\mathbf{x}^T\boldsymbol{\Sigma}^{-1}\mathbf{x}\right)\mathrm{d}\mathbf{x} \hfill
+		\\&=
+		\boldsymbol{\mu}\underbrace{\int_{-\infty}^{+\infty}\frac{1}{\sqrt{(2\pi)^N\text{det}\boldsymbol{\Sigma}}}\text{exp}\left(-\frac{1}{2}\mathbf{y}^T\boldsymbol{\Sigma}^{-1}\mathbf{y}\right)\mathrm{d}\mathbf{y}}_{\mathbf{y}\sim\boldsymbol{N}(0,\boldsymbol{\Sigma})} \hfill
+		\\&=
+		\boldsymbol{\mu}\underbrace{\int_{-\infty}^{+\infty}p\left(\mathbf{y}\right)\mathrm{d}\mathbf{y}}_{1} \hfill
+		\\&=   \boldsymbol{\mu}
+	\end{split}
+\end{equation}
+
+\subsection{ex 2.5}
+\begin{equation}
+\begin{split}
+E\left( {\left( {\mathbf{x}-\boldsymbol{\mu}} \right){{\left( {\mathbf{x}-\boldsymbol{\mu}} \right)}^T}} \right) &= \int_{ - \infty }^\infty  {\left( {\mathbf{x}-\boldsymbol{\mu}} \right){{\left( {\mathbf{x}-\boldsymbol{\mu}} \right)}^T}\frac{1}{{\sqrt {(2\pi)^N } \det \boldsymbol{\Sigma} }}\exp \left( { - \frac{1}{2}\left( {\mathbf{x}-\boldsymbol{\mu}} \right){\boldsymbol{\Sigma} ^{ - 1}}{{\left( {\mathbf{x}-\boldsymbol{\mu}} \right)}^T}} \right)\mathrm{d}\mathbf{x}} \\
+&= \frac{1}{{\sqrt {(2\pi)^N } \det \boldsymbol{\Sigma} }}\underbrace{\int_{ - \infty }^\infty d\left( { - \boldsymbol{\Sigma} \left( {\mathbf{x}-\boldsymbol{\mu}} \right)\exp \left( { - \frac{1}{2}\left( {\mathbf{x}-\boldsymbol{\mu}} \right){\boldsymbol{\Sigma} ^{ - 1}}{{\left( {\mathbf{x}-\boldsymbol{\mu}} \right)}^T}} \right)} \right)}_{\mathrm{odd, = 0}}  \\
+& \quad \quad + \frac{1}{{\sqrt {(2\pi)^N } \det \boldsymbol{\Sigma} }}\int_{ - \infty }^\infty  {\boldsymbol{\Sigma} \exp \left( { - \frac{1}{2}\left( {\mathbf{x}-\boldsymbol{\mu}} \right){\boldsymbol{\Sigma} ^{ - 1}}{{\left( {\mathbf{x}-\boldsymbol{\mu}} \right)}^T}} \right)\mathrm{d}\mathbf{x}}  \\
+&= \mathbf{0} + \boldsymbol{\Sigma}  = \boldsymbol{\Sigma} 
+\end{split}
+\end{equation}
+
+\subsection{ex 2.6}
+Take $\ln()$ on both sides, the right side will be:
+\begin{equation}
+\begin{split}
+& \ln \prod\limits_{k = 1}^K {\exp \left( {\frac{1}{2}{{\left( {{\mathbf{x}_k} - {\boldsymbol{\mu} _k}} \right)}^T}\boldsymbol{\Sigma} _k^{ - 1}\left( {{\mathbf{x}_k} - {\boldsymbol{\mu} _k}} \right)} \right)} \\
+=&\sum\limits_{k = 1}^K {\exp \left( {\frac{1}{2}{{\left( {{\mathbf{x}_k} - {\boldsymbol{\mu} _k}} \right)}^T}\boldsymbol{\Sigma} _k^{ - 1}\left( {{\mathbf{x}_k} - {\boldsymbol{\mu} _k}} \right)} \right)} \\
+=&\frac{1}{2}\left( {\sum\limits_{k = 1}^K {\mathbf{x}_k^T\boldsymbol{\Sigma} _k^{ - 1}{\mathbf{x}_k}}  + \sum\limits_{k = 1}^K {2\boldsymbol{\mu} _k^T\boldsymbol{\Sigma} _k^{ - 1}{\mathbf{x}_k}}  + \sum\limits_{k = 1}^K {\boldsymbol{\mu} _k^T\boldsymbol{\Sigma} _k^{ - 1}{\boldsymbol{\mu} _k}} } \right)
+\end{split}
+\end{equation}
+
+Compare left side with the right side regarding of $\mathbf{x}$, we have:
+\begin{equation}
+{\boldsymbol{\Sigma} ^{ - 1}} = \sum\limits_{k = 1}^K {\boldsymbol{\Sigma} _k^{ - 1}} , \quad {\boldsymbol{\Sigma} ^{ - 1}}\boldsymbol{\mu}  = \sum\limits_{k = 1}^K {\boldsymbol{\Sigma} _k^{ - 1}\boldsymbol{\mu} }
+\end{equation}
+
+\subsection{ex 2.7}
+\begin{equation}
+\begin{split}
+\mathrm{Cov}(\mathbf{x}) &= E((\mathbf{x} - \boldsymbol{\mu} ){(\mathbf{x} - \boldsymbol{\mu} )^T})\\
+&= E\left( {\sum\limits_{k = 1}^K {\left( {{w_k}{\mathbf{x}_k} - {w_k}{\boldsymbol{\mu} _k}} \right)} \sum\limits_{k = 1}^K {{{\left( {{w_k}{\mathbf{x}_k} - {w_k}{\boldsymbol{\mu} _k}} \right)}^T}} } \right)\\
+&= E\left( {\sum\limits_{k = 1}^K {w_k^2\left( {{\mathbf{x}_k} - {\boldsymbol{\mu} _k}} \right){{\left( {{\mathbf{x}_k} - {\boldsymbol{\mu} _k}} \right)}^T}}  + \sum\limits_{m=1,n=1,m\ne n}^K {{w_m}{w_n}\left( {{\mathbf{x}_m} - {\boldsymbol{\mu} _m}} \right){{\left( {{\mathbf{x}_n} - {\boldsymbol{\mu} _n}} \right)}^T}} } \right)\\
+&= \sum\limits_{k = 1}^K {w_k^2\mathrm{Cov}\left( {{\mathbf{x}_k}} \right)}  + \underbrace {E\left( {\sum\limits_{m=1,n=1,m\ne n}^K {{w_m}{w_n}\left( {{\mathbf{x}_m} - {\boldsymbol{\mu} _m}} \right){{\left( {{\mathbf{x}_n} - {\boldsymbol{\mu} _n}} \right)}^T}} } \right)}_{\mathrm{independent} , = 0}\\
+&= \sum\limits_{k = 1}^K {w_k^2\mathrm{Cov}\left( {{\mathbf{x}_k}} \right)} 
+\end{split}
+\end{equation}
+
+\subsection{ex 2.8}
+Expectation:
+\begin{equation}
+E\left( y \right) = E\left( {\sum\limits_{k = 1}^K {x_k^2} } \right) = K
+\end{equation}
+
+Covariance:
+\begin{equation}
+\mathrm{Cov}\left( y \right) = E\left( {{{\left( {y - K} \right)}^2}} \right) = E\left( {{y^2} - 2Ky + {K^2}} \right) = E\left( {{y^2}} \right) - 2{K^2} + {K^2}
+\end{equation}
+
+For $E(y^2)$, we have:
+\begin{equation}
+E\left( {{y^2}} \right) = E\left( {{{\left( {{\mathrm{x}^T}\mathrm{x}} \right)}^2}} \right) = E\left( {\sum\limits_{k = 1}^K {x_k^4}  + \sum\limits_{m = 1,n = 1,m \ne n}^K {x_m^2x_n^2} } \right)
+\end{equation}
+
+Use Isserlis to deal with the fourth-order items:
+\begin{equation}
+E\left( {\sum\limits_{k = 1}^K {x_k^4} } \right) = 3\sum\limits_{k = 1}^K {\underbrace {E\left( {x_k^2} \right)}_1E\left( {x_k^2} \right)}  = 3K
+\end{equation}
+and
+\begin{equation}
+\begin{split}
+E\left( {\sum\limits_{m = 1,n = 1,m \ne n}^K {x_m^2x_n^2} } \right) &= \sum\limits_{m = 1,n = 1,m \ne n}^K {\underbrace {E\left( {x_m^2} \right)}_1E\left( {x_n^2} \right) + 2\underbrace {E\left( {{x_m}{x_n}} \right)}_0E\left( {{x_m}{x_n}} \right)} \\
+&= K\left( {K - 1} \right) = {K^2} - K
+\end{split}
+\end{equation}
+
+Take them together:
+\begin{equation}
+\mathrm{Cov}\left( y \right) = 3K + {K^2} - K - 2{K^2} + {K^2} = 2K
+\end{equation}
+
 \end{document}
